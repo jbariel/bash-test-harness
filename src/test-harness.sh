@@ -33,7 +33,7 @@
 ##############################################################  
 # Global `DEBUG` flag - anything but `true` will be ignored
 ##############################################################
-export DEBUG=true
+export DEBUG=false
 
 ##############################################################  
 # Include output (logging) support
@@ -53,7 +53,24 @@ if [[ $1 =~ $HELP_REGEX ]]; then
     exit 0;
 fi
 
-# TODO - run all tests
-# TODO - aggregate output
+##############################################################  
+# prepare result output
+results="\n\n==============================================\n\t\tTEST SUITE\t\t\n==============================================\n"
+results="${results}Results for the test suite run:\n"
+##############################################################
+
+##############################################################
+# Run all tests.  Test are identifed as any file in the `tests`
+# folder.
+##############################################################
+for test in $(ls ./tests); do
+    . tests/$test
+    results="$results\n\t$test\treturned: $?"
+done
+
+##############################################################  
+# finalize result output
+l "$results\n\n==============================================\n\t\tCOMPLETE\t\t\n==============================================\n"
+##############################################################  
 
 exit 0;

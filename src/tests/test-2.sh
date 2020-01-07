@@ -18,3 +18,11 @@
 ## specific language governing permissions and limitations      ##
 ## under the License.                                           ##
 ##################################################################
+
+i 'Running test-2'
+
+# do stuff
+
+# use `return` not `exit` to allow multiple files to run and
+# report the result correctly
+return 1;
