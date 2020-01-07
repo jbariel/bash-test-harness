@@ -1,2 +1,2 @@
 # bash-test-harness
-test harness for bash
+test harness for bash scripts
