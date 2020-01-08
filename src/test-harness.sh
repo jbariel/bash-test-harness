@@ -39,12 +39,12 @@ export DEBUG=false
 ##############################################################  
 # Include output (logging) support
 ##############################################################
-source lib/output.sh;
+#source lib/000-output.sh;
 
 ##############################################################  
 # Include common library support
 ##############################################################
-source lib/common.sh;
+#source lib/010-common.sh;
 
 ##############################################################
 # Include all files in `./lib` - will include in lexicographical
@@ -55,7 +55,7 @@ source lib/common.sh;
 # by 10, so if files need to be added in the  middle later,
 # a lot of renaming is not required
 ##############################################################
-# for lib in $(ls ./lib); do source lib/$lib; done
+for lib in $(ls ./lib); do source lib/$lib; done
 
 ##############################################################  
 # Stub in cli help information

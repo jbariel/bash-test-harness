@@ -23,7 +23,7 @@
 ##############################################################
 ####################### COMMON LIBRARY #######################
 ### Location to store common functions.  Use with:
-###     `source lib/output.sh`
+###     `source lib/010-common.sh`
 ### Can be used to create a set of libraries that are common
 ### across all tests.
 ##############################################################

@@ -23,7 +23,7 @@
 ##############################################################
 ####################### OUTPUT LIBRARY #######################
 ### Basic output library for bash scripts.  Use with:
-###     `source lib/output.sh`
+###     `source lib/000-output.sh`
 ### Adds the following functions (and their alias):
 ### * level - set level of output
 ### * l - echo all params with `-e` flag enabled
