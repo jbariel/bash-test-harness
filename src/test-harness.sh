@@ -25,6 +25,7 @@
 ### Wrapper for all tests to run and then report on the output
 ###
 ### @see lib/output.sh
+### @see lib/common.sh
 ### @see tests/*.sh
 ##############################################################
 ##############################################################
@@ -39,6 +40,22 @@ export DEBUG=false
 # Include output (logging) support
 ##############################################################
 source lib/output.sh;
+
+##############################################################  
+# Include common library support
+##############################################################
+source lib/common.sh;
+
+##############################################################
+# Include all files in `./lib` - will include in lexicographical
+# order, so if order matters, it is suggested to name each
+# file with a `xxx-<name>` format where `xxx` represents
+# three digits to correctly sort files.  To make this easier,
+# it is also suggested that you start with `000` and increment
+# by 10, so if files need to be added in the  middle later,
+# a lot of renaming is not required
+##############################################################
+# for lib in $(ls ./lib); do source lib/$lib; done
 
 ##############################################################  
 # Stub in cli help information
@@ -61,7 +78,13 @@ results="${results}Results for the test suite run:\n"
 
 ##############################################################
 # Run all tests.  Test are identifed as any file in the `tests`
-# folder.
+# folder.  THESE WILL RUN IN LEXICOGRAPHICAL ORDER, so if 
+# order matters, it is suggested to name each file with a
+# `xxx-<name>` format where `xxx` represents, three digits to
+# correctly sort files.  To make this easier, it is also
+# suggested that you start with `000` and increment by 10, 
+# so if files need to be added in the  middle later, a lot 
+# of renaming is not required.
 ##############################################################
 for test in $(ls ./tests); do
     . tests/$test
